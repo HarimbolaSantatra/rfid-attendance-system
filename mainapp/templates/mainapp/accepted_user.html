@@ -1,0 +1,33 @@
+{% extends "index.html" %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block title %}ACCEPTED USER{% endblock %}
+</head>
+
+{% block content %}
+<h1>User list</h1>
+<p>
+    <b>Nombre d'utilisateur autorisés:</b> {{accepted_user_number}}
+</p>
+<table class="table table-striped">
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Genre</th>
+        <th>Card</th>
+    </tr>
+    {% for user in accepted_user_list %}
+    <tr>
+        <td> {{user.name}} </td>
+        <td> {{user.age}} </td>
+        <td> {{user.get_gender_display.title}} </td>
+        <td> {{user.card_id}} </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
+
+</html>

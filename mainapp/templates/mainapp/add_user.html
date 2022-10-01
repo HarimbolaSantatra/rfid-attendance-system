@@ -1,0 +1,44 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %} Add User {% endblock title %}
+
+{% block content %}
+<h1> ADD USER </h1>
+<form action="" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" class="btn btn-secondary"> Save </button>
+</form>
+{% endblock  %}
+
+{% comment %}
+{% block content %}
+<h1>ADD USER </h1>
+<form action="" method="post">
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input class="form-control" type="text" id="name" placeholder="Name">
+    </div>
+    <div class="form-group">
+        <label for="age">Age:</label>
+        <input class="form-control" type="text" id="age" placeholder="Age">
+    </div>
+    <div class="form-group">
+        <label for="card">Card ID:</label>
+        <input class="form-control" type="text" id="card"
+            placeholder="Please enter ID with spaces between numbers, not hyphens !">
+    </div>
+    <div class="radio">
+        <fieldset>
+            <label for="gender">
+                <input type="radio" name="gender" value="m"> Male
+            </label>
+            <label for="gender">
+                <input type="radio" name="gender" value="f"> Female 
+            </label>
+        </fieldset>
+    </div>
+    <button type="submit" class="btn btn-secondary"> Save </button>
+</form>
+{% endblock  %}
+{% endcomment %}
