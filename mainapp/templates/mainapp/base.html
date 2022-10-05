@@ -1,5 +1,5 @@
-{% block head %}
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="{% static 'mainapp/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'mainapp/css/style.css' %}">
 </head>
-{% endblock head %}
 
 {% block header %}
 <nav class="nav navbar-nav navbar-expand-md navbar-dark bg-dark py-3 px-4">
@@ -61,7 +60,7 @@
 
     </span>
 
-    <span class="hello_msg"> Hello, {{request.user}} </span>
+    <span id="hello-msg"> Hello, {{request.user}} </span>
     <span>
         <button class="btn btn-danger">
             <a class="text-white" href="{% url 'logout' %}"> Logout </a>
@@ -70,8 +69,10 @@
 
 </nav>
 {% endblock header %}
+
+
 <body class='container py-2'>
-    <div class="container pt-2 pb-4 content">
+    <div class="container pt-2 pb-4 bg-white">
         {% block content %}
         {% endblock content %}
     </div>
