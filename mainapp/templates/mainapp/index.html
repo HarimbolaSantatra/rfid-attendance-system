@@ -10,31 +10,44 @@
     }
 </style>
 
-<body class='container pt-3'>
 
-<div class="container px-3 content">
 {% block content %}
-    <h1 class="text-center"> BIENVENUE !! </h1>
+    <h1 class=""> A PROPOS</h1>
 
     <div class="row">
-        <p><h2>A propos du projet:</h2></p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        Harum quas delectus rerum, maxime asperiores qui exercitationem 
-        inventore nisi est tempora natus id obcaecati ea sequi et perspiciatis 
-        laudantium. Dolor, sequi! </p>
+        <div class="col-8 ">
+            <p><h2>A propos du projet</h2></p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Harum quas delectus rerum, maxime asperiores qui exercitationem 
+            inventore nisi est tempora natus id obcaecati ea sequi et perspiciatis 
+            laudantium. Dolor, sequi!</p>
+            
+        </div>
     </div>
 
-    <div class="row">
-        <p><h2>Outils utilisés</h2></p>
-        <p><ul>
-            <li> Technologie Back-end: Django </li>
-            <li> Technologie Front-end: Bootstrap </li>
-        </ul></p>
+    <div class="row row-cols-3">
+        <div class="col text-center">
+            <h2 class="">Hardware</h2>
+            Les composants électroniques sont la carte Arduino, le lecteur RFID MFRC522 et une étiquette RFID.
+            <p><img src="{% static 'mainapp/img/arduino.png' %}"
+                alt="logo_arduino" width="35%" class="img-fluid">
+            </p>
+        </div>
+        <div class="col text-center">
+            <h2>Back-end</h2>
+            Le côté back-end comprend le framework backend Django, codé en langage Python.
+            <p><img src="{% static 'mainapp/img/django-python.png' %}"
+                alt="logo_django" width="35%" class="img-fluid">
+            </p>
+            
+        </div>
+        <div class="col text-center cube-content">
+            <h2>Front-end</h2>
+            Les technologies front-end utilisés sont HTML/CSS, Django et le framework Bootstrap.
+            <p><img src="{% static 'mainapp/img/html-css.png' %}" 
+                alt="logo_html_css" width="50%" class="img-fluid">
+            </p>
+        </div>
     </div>
 
-    
 {% endblock %}
-</div>
-
-</body>
-</html>

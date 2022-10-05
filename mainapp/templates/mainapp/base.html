@@ -70,8 +70,13 @@
 
 </nav>
 {% endblock header %}
+<body class='container py-2'>
+    <div class="container pt-2 pb-4 content">
+        {% block content %}
+        {% endblock content %}
+    </div>
+</body>
 
-{% block content %}{% endblock content %}
 
 {% block script %}
 <script src="{% static 'mainapp/js/jquery.js' %}"></script>
