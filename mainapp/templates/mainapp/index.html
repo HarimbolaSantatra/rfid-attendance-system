@@ -9,11 +9,21 @@
      <title>{% block title %}Système de présence{% endblock %}</title> 
     <link rel="stylesheet" href="{% static 'mainapp/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'mainapp/css/style.css' %}">
+    <style>
+        .hello_msg{
+            font-size: 18px;
+            color: #fff;
+            margin-right: 20px;
+            margin-top: 5px;
+        }
+    </style>
 </head>
 
 <body class='container pt-3'>
+
+
 {% block header %}
-<nav class="nav navbar-nav navbar-expand-md navbar-dark bg-dark py-2 px-2">
+<nav class="nav navbar-nav navbar-expand-md navbar-dark bg-dark py-3 px-4">
     {% comment %} BRAND {% endcomment %}
     <a
         class="navbar-brand h1"
@@ -24,6 +34,7 @@
                 width="30" height="30 ">
                 LIPSS3
     </a>
+
     {% comment %} MENU {% endcomment %}
     <div class="collapse navbar-collapse">
         <button class="btn btn-primary">
@@ -32,7 +43,7 @@
 
         <div class="dropdown">
             <a class="btn btn-primary dropdown-toggle ml-1 " role="button"
-            id="dropdownMenuButton" data-toggle="dropdown" aria-hashpop="true"
+            data-toggle="dropdown" aria-hashpop="true"
             aria-expanded="false" href="#">
                 User
             </a>
@@ -48,7 +59,7 @@
 
         <div class="dropdown">
             <a class="btn btn-primary dropdown-toggle ml-1 " role="button"
-            id="dropdownMenuButton" data-toggle="dropdown" aria-hashpop="true"
+            data-toggle="dropdown" aria-hashpop="true"
             aria-expanded="false" href="#">
                 Attendance
             </a>
@@ -60,15 +71,19 @@
 
     </div>
 
-    <div class="collapse navbar-collapse">
-        <button class="btn btn-primary">
-            <a class="text-white" href="{% url 'login' %}"> Login </a>
+    <span class="hello_msg"> Hello, {{request.user}} </span>
+    <span>
+        <button class="btn btn-danger">
+            <a class="text-white" href="{% url 'logout' %}"> Logout </a>
         </button>
-    </div>
-</nav>
-{% endblock %}
+    </span>
 
-<div class="container content">
+</nav>
+{% endblock header %}
+
+
+
+<div class="container px-3 content">
 {% block content %}
     <h1 class="text-center"> BIENVENUE !! </h1>
     <div class="row">
@@ -87,6 +102,7 @@
     </div>
 {% endblock %}
 </div>
+
 
 
 {% block script %}
