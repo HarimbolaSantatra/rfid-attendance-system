@@ -1,53 +1,70 @@
 {% extends 'base.html' %}
 {% load static %}
 
-<style>
-    .hello_msg{
-        font-size: 18px;
-        color: #fff;
-        margin-right: 20px;
-        margin-top: 5px;
-    }
-</style>
+<head>
+    <style>
+        .cube-content{
+            border: 2px black;
+        }
+        
+        #hello-msg{
+            font-size: 18px;
+            color: #fff;
+            margin-right: 20px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
 
 
 {% block content %}
-    <h1 class=""> A PROPOS</h1>
-
-    <div class="row">
+    <div class="row pb-3 boite_contenu mb-3">
         <div class="col-8 ">
-            <p><h2>A propos du projet</h2></p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Harum quas delectus rerum, maxime asperiores qui exercitationem 
-            inventore nisi est tempora natus id obcaecati ea sequi et perspiciatis 
-            laudantium. Dolor, sequi!</p>
-            
+            <p><h2><u>A PROPOS</u></h2></p>
+            <p> Cette interface web a été conçu pour fournir un interface à l'application de présence automatique. </p>
+            <p>
+                Elle comprend:
+                <ul>
+                    <li>Un système de connexion (Login)</li>
+                    <li>Une page pour enregistrer un nouveau utilisateur</li>
+                    <li>Une page pour lister le registrer de présence</li>
+                </ul>
+            </p>
         </div>
     </div>
 
-    <div class="row row-cols-3">
+    <div class="row gx-5">
+
         <div class="col text-center">
-            <h2 class="">Hardware</h2>
-            Les composants électroniques sont la carte Arduino, le lecteur RFID MFRC522 et une étiquette RFID.
-            <p><img src="{% static 'mainapp/img/arduino.png' %}"
-                alt="logo_arduino" width="35%" class="img-fluid">
-            </p>
+            <div class="p-3 border boite_contenu">
+                <h2>HARDWARE</h2>
+                Les composants électroniques sont la carte Arduino et le lecteur RFID MFRC522.
+                <p style="padding-top: 40px"><img src="{% static 'mainapp/img/arduino.png' %}"
+                    alt="logo_arduino" width="35%" class="img-fluid">
+                </p>
+            </div>
         </div>
+
         <div class="col text-center">
-            <h2>Back-end</h2>
-            Le côté back-end comprend le framework backend Django, codé en langage Python.
-            <p><img src="{% static 'mainapp/img/django-python.png' %}"
-                alt="logo_django" width="35%" class="img-fluid">
-            </p>
-            
+            <div class="p-3 border boite_contenu">
+                <h2>BACK-END</h2>
+                Le côté back-end comprend le framework backend Django, codé en langage Python.
+                <p style="padding-top: 30px"><img src="{% static 'mainapp/img/django-python.png' %}"
+                    alt="logo_django" width="35%" class="img-fluid">
+                </p>
+            </div>
         </div>
-        <div class="col text-center cube-content">
-            <h2>Front-end</h2>
-            Les technologies front-end utilisés sont HTML/CSS, Django et le framework Bootstrap.
-            <p><img src="{% static 'mainapp/img/html-css.png' %}" 
-                alt="logo_html_css" width="50%" class="img-fluid">
-            </p>
+
+        <div class="col text-center">
+            <div class="p-3 border boite_contenu">
+                <h2>FRONT-END</h2>
+                Les technologies front-end utilisés sont HTML/CSS, Django et le framework Bootstrap.
+                <p style="padding-top: 20px"><img src="{% static 'mainapp/img/html-css.png' %}" 
+                    alt="logo_html_css" width="50%" class="img-fluid">
+                </p>
+            </div>
         </div>
+
     </div>
 
 {% endblock %}

@@ -1,3 +1,5 @@
 .idea
 .pytest_cache
 *.txt
+db.sqlite3
+.gitignore
