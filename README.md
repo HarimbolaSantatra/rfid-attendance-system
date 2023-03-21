@@ -8,6 +8,7 @@ We're using an Arduino micro controller here to obtain the data from the RFID ca
 Data in an RFID card is unique. In our case, it's in the format __XX XX XX XX__ where X is an integer.
 
 ## Screenshots
+(Sorry for the french language in the screenshots ) :sweat_smile:
 ![screenshot_1][login]
 ![screenshot_2][homepage]
 ![screenshot_3][add_user]
