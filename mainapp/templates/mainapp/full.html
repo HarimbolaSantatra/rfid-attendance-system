@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static%}
+{% block title %} Full Register {% endblock %}
+
+{% block content %}
+<h1>FULL ATTENDANCE REGISTER</h1>
+<table class="table table-striped">
+    <tr>
+        <th>ID</th>
+        <th>Date</th>
+        <th>Name</th>
+        <th>Card</th>
+        <th>State</th>
+    </tr>
+    {% for id, instance in attendance_instances_enum %}
+    <tr>
+        <td> {{id}} </td>
+        <td> {{instance.date}} </td>
+        <td> <a href=" {% url 'user_page' instance.user.id %} "> {{instance.user}} </td></a>
+        <td> {{instance.user.card_id}} </td>
+        <td> {{instance.user.get_status_display.title}} </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
+
+</html>

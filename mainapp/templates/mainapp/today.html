@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Today's Attendance{% endblock title %}
+
+{% block content %}
+<h1>TODAY'S REGITER</h1>
+<table class="table table-striped">
+    <tr>
+        <th>ID</th>
+        <th>Date</th>
+        <th>Name</th>
+        <th>Card</th>
+        <th>Etat</th>
+    </tr>
+    {% for id, instance in today_attendance_instances_enum %}
+    <tr>
+        <td> {{id}} </td>
+        <td> {{instance.date}} </td>
+        <td> <a href=" {% url 'user_page' instance.user.id %} "></a> {{instance.user}} </td>
+        <td> {{instance.user.card_id}} </td>
+        <td> {{instance.user.get_status_display.title}} </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,92 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>{% block title %}Système de présence{% endblock %}</title> 
+    <link rel="stylesheet" href="{% static 'mainapp/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'mainapp/css/style.css' %}">
+</head>
+
+{% block header %}
+<nav class="nav navbar-nav navbar-expand-md navbar-dark bg-dark py-3 px-4">
+    {% comment %} BRAND {% endcomment %}
+    <a
+        class="navbar-brand h1"
+        href="{% url 'homepage' %}">
+            <img
+                class="align-top d-inline-block"
+                src="{% static 'mainapp/img/letterl.png' %}"
+                width="30" height="30 ">
+                LIPSS3
+    </a>
+
+    {% comment %} MENU {% endcomment %}
+    <span class="collapse navbar-collapse">
+        <button class="btn btn-primary">
+            <a class="text-white" href="{% url 'homepage' %}"> Home </a>
+        </button>
+
+        <span class="dropdown">
+            <a class="btn btn-primary dropdown-toggle ml-1 " role="button"
+            data-toggle="dropdown" aria-hashpop="true"
+            aria-expanded="false" href="#">
+                User
+            </a>
+            <span class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="{% url 'users' %}">
+                    User List
+                </a>
+                <a class="dropdown-item" href="{% url 'add_user' %}">
+                    Add User
+                </a>
+            </span>
+        </span>
+
+        <span class="dropdown">
+            <a class="btn btn-primary dropdown-toggle ml-1 " role="button"
+            data-toggle="dropdown" aria-hashpop="true"
+            aria-expanded="false" href="#">
+                Attendance
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="{% url 'today' %}"> Today </a>
+                <a class="dropdown-item" href="{% url 'full' %}"> Full </a>
+            </div>
+        </span>
+
+    </span>
+
+    <span id="hello-msg"> Hello, {{request.user}} </span>
+    <span>
+        <button class="btn btn-danger">
+            <a class="text-white" href="{% url 'logout' %}"> Logout </a>
+        </button>
+    </span>
+
+</nav>
+{% endblock header %}
+
+
+<body class='container py-2'>
+    <div class="container pt-2 pb-4 bg-white">
+        {% block content %}
+        {% endblock content %}
+    </div>
+</body>
+
+
+{% block script %}
+<script src="{% static 'mainapp/js/jquery.js' %}"></script>
+<script src="{% static 'mainapp/js/popper.js' %}"></script>
+<script src="{% static 'mainapp/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'mainapp/js/bootstrap.bundle.min.js' %}"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.dropdown-toggle').dropdown()
+    });
+</script>
+{% endblock script %}

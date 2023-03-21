@@ -1,0 +1,15 @@
+#hello-msg{
+    font-size: 18px;
+    color: #fff;
+    margin-right: 20px;
+    margin-top: 5px;
+}
+
+.boite_contenu{
+    background-color: #c2c2c2;
+    min-height: 100%;
+}
+
+body{
+    min-height: 100%;
+}

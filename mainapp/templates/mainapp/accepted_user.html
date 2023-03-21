@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block title %}ACCEPTED USER{% endblock %}
+</head>
+
+{% block content %}
+<h1><u>User list</u></h1>
+<p>
+    <b>Number of accepted user:</b> {{accepted_user_number}}
+</p>
+<table class="table table-striped">
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Genre</th>
+        <th>Card</th>
+    </tr>
+    {% for user in accepted_user_list %}
+    <tr>
+        <td> <a href=" {% url 'user_page' user.id %} ">
+            {{user.name}}
+        </td></a>
+        <td> {{user.age}} </td>
+        <td> {{user.get_gender_display.title}} </td>
+        <td> {{user.card_id}} </td>
+    </tr>
+    {% endfor %}
+</table>
+<button class="btn btn-primary">
+    <a href=" {% url 'add_user' %}" class='text-white'> Add User </a>
+</button>
+
+{% endblock %}
+
+</html>

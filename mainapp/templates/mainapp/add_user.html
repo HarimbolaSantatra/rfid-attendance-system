@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Add User {% endblock title %}
+
+{% block content %}
+<h1> ADD USER </h1>
+<form action="" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" class="btn btn-secondary"> Save </button>
+</form>
+{% endblock  %}

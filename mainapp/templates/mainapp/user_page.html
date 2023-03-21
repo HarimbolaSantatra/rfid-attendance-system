@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} User Page {% endblock title %}
+
+{% block content %}
+<p><h2><u>USER INFORMATION</u></h2></p>
+<table class="table table-striped">
+    <tr>
+        <th>Name</th>
+        <td> {{user.name}} </td>
+    </tr>
+    <tr>
+        <th>Card</th>
+        <td> {{user.card_id}}</td>
+    </tr>
+    <tr>
+        <th>Age</th>
+        <td> {{user.age}} </td>
+    </tr>
+    <tr>
+        <th>Gender</th>
+        <td> {{user.get_gender_display}} </td>
+    </tr>
+    <tr>
+        <th>Status</th>
+        <td> {{user.get_status_display}} </td>
+    </tr>
+</table>
+<div class="row">
+    <div class="col-1">
+        <button type="submit" class="btn btn-secondary">
+            <a href="{% url 'update_user' user.id %}" class="text-white">
+            Update
+            </a>
+        </button>
+    </div>
+    <div class="col-1">
+        <button type="submit" class="btn btn-danger">
+            <a href="{% url 'delete_user' user.id %}" class="text-white">
+            Delete </a>
+        </button>
+    </div>
+</div>
+
+
+{% endblock %}
