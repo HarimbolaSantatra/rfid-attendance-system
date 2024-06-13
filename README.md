@@ -15,10 +15,6 @@ Data in an RFID card is unique. In our case, it's in the format __XX XX XX XX__ 
 ![screenshot_4][attendance_list]
 
 ## RFID System
-I won't explain the full functionality of an RFID based system here because I'm more focused on the software side :sweat_smile: and because everyone can design the electrical part as they want. I'll just explain what I did briefly. 
-
-There are some useful resources at the end of this document for these who want to dig deeper. :wink:
-
 A basic system is shown here:
 
 ![rfid_system][rfid_system]
@@ -28,7 +24,7 @@ From upper-left, the data from the RFID reader is read by the Arduino. Next, the
 ## Electrical circuit
 We use Arduino Uno for this project but any Arduino board will do.
 
-Of course, we need a RFID card reader. We just use a popular Arduino module for this: the [MFRC522][3].
+We need a RFID card reader. We just use a popular Arduino module for this: the [MFRC522][3].
 
 ![mfrc_522][mfrc_522]
 
@@ -69,13 +65,8 @@ Launch Django
 	cd rfid-attendance-system
 	python manage.py runserver
 
-## Database
-We use SQLite, which is built inside Django.
-
 ## Files
 ### serial_rfid_test.py
-As I said, its purpose is to test the connection Arduino-RFID-application. 
-
 After the line:
 
 	port_data = arduino_port.readline()
@@ -88,18 +79,16 @@ The *decode* method doesn't remove escape sentences, so we must use the *strip* 
 
 Everything we do after this is to use regular expression to extract the XX XX XX XX pattern.
 
-### list_rfid.txt
-Contains an list of the card id that will be accepted or refused. It's all example we use in this program so you can recognize it.
-
-### main/main.ino
-This is the Arduino file for the program inside it.
+### Other files
+- `list_rfid.txt`: Contains an list of the card id that will be accepted or refused. It's all example we use in this program so you can recognize it.
+- `### main/main.ino`: This is the Arduino file for the program inside it.
 
 ## Resources:
-For Python & Django:
+Python & Django:
 - Read/Write data to serial port in Python using pySerial: [pySerial Short Introduction][1] 
-- [Django documentation][2] (Very good ! :grin:)
+- [Django documentation][2]
 
-For RFID tutorials:
+RFID:
 - [RFID][6] - Wikipedia
 - [Security Access using MFRC522 RFID][4]
 - [Interfacing RFID Reader With Arduino][5]
