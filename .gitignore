@@ -1,0 +1,7 @@
+# Editor
+.idea
+*.vim
+*.swp
+*.swo
+
+*test.py
